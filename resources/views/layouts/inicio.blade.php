@@ -7,16 +7,16 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="css/font-awesome.css">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}">
     <!-- Theme style -->
-    <link rel="stylesheet" href="css/AdminLTE.min.css">
+    <link rel="stylesheet" href="{{asset('css/AdminLTE.min.css')}}">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="css/_all-skins.min.css">
-    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" href="{{asset('css/_all-skins.min.css')}}">
+    <link rel="apple-touch-icon" href="{{asset('img/apple-touch-icon.png')}}">
+    <link rel="shortcut icon" href="{{asset('img/favicon.ico')}}">
 
   </head>
   <body class="hold-transition skin-blue sidebar-mini">
@@ -25,11 +25,11 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="{{asset('index2.html')}}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>EMA</b>MUSICA</span>
+          <span class="{{asset('logo-mini')}}"><b>EMA</b>MUSICA</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>MUSICA</b></span>
+          <span class="{{asset('logo-lg')}}"><b>MUSICA</b></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -156,18 +156,17 @@
       <!--Fin-Contenido-->
       <footer class="main-footer">
         <div class="pull-right hidden-xs">
-          <b>Version</b> 2.3.0
+          <b></b> 
         </div>
-        <strong>Copyright &copy; 2015-2020 <a href="www.incanatoit.com">IncanatoIT</a>.</strong> All rights reserved.
-      </footer>
+        <strong> EMA &copy; <a href="www.incanatoit.com">ESCUELA DE MUSICA</a>.</strong>
 
       
     <!-- jQuery 2.1.4 -->
-    <script src="js/jQuery-2.1.4.min.js"></script>
+    <script src="{{asset('js/jQuery-2.1.4.min.js')}}"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <!-- AdminLTE App -->
-    <script src="js/app.min.js"></script>
+    <script src="{{asset('js/app.min.js')}}"></script>
     
   </body>
 </html>

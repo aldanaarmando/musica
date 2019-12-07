@@ -6,7 +6,7 @@
  @endif
   <head>
   </head>
-<form action="{{route('gasto.store')}} " method="POST">
+<form action="{{route('cargos.store')}} " method="POST">
 @csrf
 <div class="form-group row">
   <label for="example-text-input" class="col-2 col-form-label">id_cargo</label>
@@ -24,4 +24,4 @@
   <button type="submit" class="btn btn-primary">Enviar</button>
 </div>
     </form>
-@stop
+@endsection

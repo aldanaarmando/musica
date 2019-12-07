@@ -16,7 +16,7 @@ class CargoController extends Controller
      */
     public function index()
     {
-       $cargos=Cargo::all();
+        $cargos=Cargo::all();
      return view('cargos.index',compact('cargos'));
     }
 
@@ -27,7 +27,7 @@ class CargoController extends Controller
      */
     public function create()
     {
-        //
+        return view('cargos.create');
     }
 
     /**
@@ -38,7 +38,14 @@ class CargoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_cargo'=>'required',
+            'nombre_cargo'=>'required',
+        ]);
+       Cargo::create($request->all());
+      
+           Session::flash('message','Gasto registrado correctamente');
+           return redirect()->route('cargos.index');
     }
 
     /**
@@ -60,7 +67,7 @@ class CargoController extends Controller
      */
     public function edit(Cargo $cargo)
     {
-        //
+        return view('cargos.edit',compact ('cargo'));
     }
 
     /**
@@ -72,7 +79,13 @@ class CargoController extends Controller
      */
     public function update(Request $request, Cargo $cargo)
     {
-        //
+        $request->validate([
+            'id_cargo'=>'required',
+            'nombre_cargo'=>'required',
+        ]);
+           $cargo->update($request->all());
+                   Session::flash('message','cargo editado correctamente');
+           return redirect()->route('cargos.index');
     }
 
     /**
@@ -83,6 +96,8 @@ class CargoController extends Controller
      */
     public function destroy(Cargo $cargo)
     {
-        //
+        $cargo->delete();
+        Session::flash('message','Registro eliminado correctamente');
+return redirect()->route('cargos.index');
     }
 }
