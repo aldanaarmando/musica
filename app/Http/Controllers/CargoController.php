@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Cargo;
 use Illuminate\Http\Request;
-
+use Session;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Database\Eloquent;
 class CargoController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class CargoController extends Controller
      */
     public function index()
     {
-        //
+       $cargos=Cargo::all();
+     return view('cargos.index',compact('cargos'));
     }
 
     /**
