@@ -86,25 +86,50 @@
             
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-laptop"></i>
-                <span>Cargos</span>
+                
+                <span>Almacén</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i> Ingresar</a></li>
-                <li><a href="almacen/categoria"><i class="fa fa-circle-o"></i> Listar</a></li>
+                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i> Artículos</a></li>
+                <li><a href="almacen/categoria"><i class="fa fa-circle-o"></i> Categorías</a></li>
               </ul>
             </li>
-    
+            
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-folder"></i> <span>Acceso</span>
+                
+                <span>Compras</span>
+                 <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i> Ingresos</a></li>
+                <li><a href="compras/proveedor"><i class="fa fa-circle-o"></i> Proveedores</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                
+                <span>Ventas</span>
+                 <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="ventas/venta"><i class="fa fa-circle-o"></i> Ventas</a></li>
+                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i> Clientes</a></li>
+              </ul>
+            </li>
+                       
+            <li class="treeview">
+              <a href="#">
+               
+                </i> <span>Acceso</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="configuracion/usuario"><i class="fa fa-circle-o"></i> Usuarios</a></li>
                 
               </ul>
+            </li>
 
                         
           </ul>
@@ -112,28 +137,13 @@
         <!-- /.sidebar -->
       </aside>
 
-
-
-
-
        <!--Contenido-->
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         
         <!-- Main content -->
         <section class="content">
-          
-          <div class="row">
-            <div class="col-md-12">
-              <div class="box">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Sistema de Ventas</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
-                </div>
+
                 <!-- /.box-header -->
                 <div class="box-body">
                   	<div class="row">
@@ -143,13 +153,8 @@
 		                          <!--Fin Contenido-->
                            </div>
                         </div>
-		                    
                   		</div>
-                  	</div><!-- /.row -->
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
-          </div><!-- /.row -->
+      
 
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->

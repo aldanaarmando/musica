@@ -14,7 +14,7 @@ class CreatePreciosTable extends Migration
     public function up()
     {
         Schema::create('precios', function (Blueprint $table) {
-            $table->increments('id_precio');
+            $table->unsignedInteger('id_precio');
             $table->integer('id_curso')->unsigned();
             $table->string('precio');
             $table->string('tipo_pago');

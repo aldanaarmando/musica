@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::resource('/cargos', 'CargoController');
+Route::resource('/aula', 'AulaController');
+Route::resource('/alumno', 'AlumnoController');
+Route::resource('/profesor', 'ProfesorController');
+Route::resource('/curso', 'CursoController');
+Route::resource('/horario', 'HorarioController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

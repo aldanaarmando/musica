@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Curso;
 use Illuminate\Http\Request;
-
+use Session;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Database\Eloquent;
 class CursoController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class CursoController extends Controller
      */
     public function index()
     {
-        //
+        $cursos=Curso::all();
+        return view('curso.index',compact('cursos'));
     }
 
     /**
@@ -24,7 +27,7 @@ class CursoController extends Controller
      */
     public function create()
     {
-        //
+        return view('curso.create');
     }
 
     /**
@@ -35,7 +38,16 @@ class CursoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_curso'=>'required',
+            'nombre_curso'=>'required',
+            'nivel'=>'required',
+            'id_profesor'=>'required',
+        ]);
+       Curso::create($request->all());
+      
+           Session::flash('message','curso registrado correctamente');
+           return redirect()->route('curso.index');
     }
 
     /**
@@ -57,7 +69,7 @@ class CursoController extends Controller
      */
     public function edit(Curso $curso)
     {
-        //
+        return view('curso.edit',compact ('curso'));
     }
 
     /**
@@ -69,7 +81,15 @@ class CursoController extends Controller
      */
     public function update(Request $request, Curso $curso)
     {
-        //
+        $request->validate([
+            'id_curso'=>'required',
+            'nombre_curso'=>'required',
+            'nivel'=>'required',
+            'id_profesor'=>'required',
+        ]);
+           $aula->update($request->all());
+                   Session::flash('message','curso editado correctamente');
+           return redirect()->route('curso.index');
     }
 
     /**
@@ -80,6 +100,8 @@ class CursoController extends Controller
      */
     public function destroy(Curso $curso)
     {
-        //
+        $curso->delete();
+        Session::flash('message','Registro eliminado correctamente');
+return redirect()->route('curso.index');
     }
 }

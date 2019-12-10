@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Horario;
 use Illuminate\Http\Request;
+use Session;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Database\Eloquent;
 
 class HorarioController extends Controller
 {
@@ -14,7 +17,8 @@ class HorarioController extends Controller
      */
     public function index()
     {
-        //
+        $horarios=Horario::all();
+        return view('horario.index',compact('horarios'));
     }
 
     /**
@@ -24,7 +28,7 @@ class HorarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('horario.create');
     }
 
     /**
@@ -35,7 +39,17 @@ class HorarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_horario'=>'required',
+            'id_aula'=>'required',
+            'id_curso'=>'required',
+            'dias'=>'required',
+            'horario'=>'required',
+        ]);
+       Horario::create($request->all());
+      
+           Session::flash('message','horario registrado correctamente');
+           return redirect()->route('horario.index');
     }
 
     /**
@@ -57,7 +71,7 @@ class HorarioController extends Controller
      */
     public function edit(Horario $horario)
     {
-        //
+        return view('horario.edit',compact ('horario'));
     }
 
     /**
@@ -69,7 +83,16 @@ class HorarioController extends Controller
      */
     public function update(Request $request, Horario $horario)
     {
-        //
+        $request->validate([
+            'id_horario'=>'required',
+            'id_aula'=>'required',
+            'id_curso'=>'required',
+            'dias'=>'required',
+            'horario'=>'required',
+        ]);
+           $horario->update($request->all());
+                   Session::flash('message','chorario editado correctamente');
+           return redirect()->route('chorario.index');
     }
 
     /**
@@ -80,6 +103,8 @@ class HorarioController extends Controller
      */
     public function destroy(Horario $horario)
     {
-        //
+        $horario->delete();
+        Session::flash('message','Registro eliminado correctamente');
+return redirect()->route('horario.index');
     }
 }

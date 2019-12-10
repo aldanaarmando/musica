@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Aula;
 use Illuminate\Http\Request;
-
+use Session;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Database\Eloquent;
 class AulaController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class AulaController extends Controller
      */
     public function index()
     {
-        //
+        $aulas=Aula::all();
+        return view('aula.index',compact('aulas'));
     }
 
     /**
@@ -24,7 +27,7 @@ class AulaController extends Controller
      */
     public function create()
     {
-        //
+        return view('aula.create');
     }
 
     /**
@@ -35,7 +38,15 @@ class AulaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_aula'=>'required',
+            'nombre_aula'=>'required',
+            'detalle_aula'=>'required',
+        ]);
+       Aula::create($request->all());
+      
+           Session::flash('message','aula registrado correctamente');
+           return redirect()->route('aula.index');
     }
 
     /**
@@ -57,7 +68,7 @@ class AulaController extends Controller
      */
     public function edit(Aula $aula)
     {
-        //
+        return view('aula.edit',compact ('aula'));
     }
 
     /**
@@ -69,7 +80,14 @@ class AulaController extends Controller
      */
     public function update(Request $request, Aula $aula)
     {
-        //
+        $request->validate([
+            'id_aula'=>'required',
+            'nombre_aula'=>'required',
+            'detalle_aula'=>'required',
+        ]);
+           $aula->update($request->all());
+                   Session::flash('message','aula editado correctamente');
+           return redirect()->route('aula.index');
     }
 
     /**
@@ -80,6 +98,8 @@ class AulaController extends Controller
      */
     public function destroy(Aula $aula)
     {
-        //
+        $aula->delete();
+        Session::flash('message','Registro eliminado correctamente');
+return redirect()->route('aula.index');
     }
 }

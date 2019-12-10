@@ -14,7 +14,7 @@ class CreateInscripcionsTable extends Migration
     public function up()
     {
         Schema::create('inscripcions', function (Blueprint $table) {
-            $table->increments('id_inscripcion');
+            $table->unsignedInteger('id_inscripcion');
             $table->integer('id_curso')->unsigned();
             $table->integer('id_alumno')->unsigned();
             $table->foreign('id_curso')->references('id_curso')->on('cursos');

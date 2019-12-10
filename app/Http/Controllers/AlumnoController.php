@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Alumno;
 use Illuminate\Http\Request;
-
+use Session;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Database\Eloquent;
 class AlumnoController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        //
+        $alumnos=Alumno::all();
+        return view('alumno.index',compact('alumnos'));
     }
 
     /**
@@ -24,7 +27,7 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        return view('alumno.create');
     }
 
     /**
@@ -35,7 +38,20 @@ class AlumnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+        'id_alumno'=>'required',
+        'ci'=>'required',
+        'nombre'=>'required',
+        'apellido_pat'=>'required',
+        'apellido_mat'=>'required',
+        'fecha_nac'=>'required',
+        'genero'=>'required',
+        'telefono'=>'required',
+    ]);
+   Alumno::create($request->all());
+  
+       Session::flash('message','alumno registrado correctamente');
+       return redirect()->route('alumno.index');
     }
 
     /**
@@ -57,7 +73,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+        return view('alumno.edit',compact ('alumno'));
     }
 
     /**
@@ -69,7 +85,19 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, Alumno $alumno)
     {
-        //
+        $request->validate([
+            'id_alumno'=>'required',
+            'ci'=>'required',
+            'nombre'=>'required',
+            'apellido_pat'=>'required',
+            'apellido_mat'=>'required',
+            'fecha_nac'=>'required',
+            'genero'=>'required',
+            'telefono'=>'required',
+        ]);
+           $alumno->update($request->all());
+                   Session::flash('message','alumno editado correctamente');
+           return redirect()->route('alumno.index');
     }
 
     /**
@@ -80,6 +108,8 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-        //
+        $alumno->delete();
+        Session::flash('message','Registro eliminado correctamente');
+return redirect()->route('alumno.index');
     }
 }

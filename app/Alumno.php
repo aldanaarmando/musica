@@ -11,4 +11,4 @@ class Alumno extends Model
        ];
        protected $primaryKey = 'id_alumno';
 }
-}
+

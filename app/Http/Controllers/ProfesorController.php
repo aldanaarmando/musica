@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Profesor;
 use Illuminate\Http\Request;
-
+use Session;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Database\Eloquent;
 class ProfesorController extends Controller
 {
     /**
@@ -14,7 +16,8 @@ class ProfesorController extends Controller
      */
     public function index()
     {
-        //
+        $profesores=Profesor::all();
+        return view('profesor.index',compact('profesores'));
     }
 
     /**
@@ -24,7 +27,7 @@ class ProfesorController extends Controller
      */
     public function create()
     {
-        //
+        return view('profesor.create');
     }
 
     /**
@@ -35,7 +38,21 @@ class ProfesorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_profesor'=>'required',
+            'ci'=>'required',
+            'nombre'=>'required',
+            'apellido_pat'=>'required',
+            'apellido_mat'=>'required',
+            'fecha_nac'=>'required',
+            'genero'=>'required',
+            'telefono'=>'required',
+            'id_cargo'=>'required',
+        ]);
+       Profesor::create($request->all());
+      
+           Session::flash('message','profesor registrado correctamente');
+           return redirect()->route('profesor.index');
     }
 
     /**
@@ -57,7 +74,7 @@ class ProfesorController extends Controller
      */
     public function edit(Profesor $profesor)
     {
-        //
+        return view('profesor.edit',compact ('profesor'));
     }
 
     /**
@@ -69,7 +86,20 @@ class ProfesorController extends Controller
      */
     public function update(Request $request, Profesor $profesor)
     {
-        //
+        $request->validate([
+            'id_profesor'=>'required',
+            'ci'=>'required',
+            'nombre'=>'required',
+            'apellido_pat'=>'required',
+            'apellido_mat'=>'required',
+            'fecha_nac'=>'required',
+            'genero'=>'required',
+            'telefono'=>'required',
+            'id_cargo'=>'required',
+        ]);
+           $profesor->update($request->all());
+                   Session::flash('message','profesor editado correctamente');
+           return redirect()->route('profesor.index');
     }
 
     /**
@@ -80,6 +110,8 @@ class ProfesorController extends Controller
      */
     public function destroy(Profesor $profesor)
     {
-        //
+        $profesor->delete();
+        Session::flash('message','Registro eliminado correctamente');
+return redirect()->route('profesor.index');
     }
 }

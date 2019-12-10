@@ -14,7 +14,7 @@ class CreateHorariosTable extends Migration
     public function up()
     {
         Schema::create('horarios', function (Blueprint $table) {
-            $table->increments('id_horario');
+            $table->unsignedInteger('id_horario');
             $table->integer('id_aula')->unsigned();
             $table->integer('id_curso')->unsigned();
             $table->string('dias');
