@@ -1,6 +1,6 @@
 @extends ('layouts.inicio')
 @section('contenido')
-<h1 class="text-center">Ingresos de dinero</h1>
+<h1 class="text-center">CARGOS</h1>
 <div class="container">
 
 

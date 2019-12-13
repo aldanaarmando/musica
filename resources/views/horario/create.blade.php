@@ -1,6 +1,6 @@
 @extends ('layouts.inicio')
 @section('contenido')
-<h1 class="text-left">Registrar gasto</h1>
+<h1 class="text-left">Registrar aula</h1>
 @if (Session::has('message'))
       <div class="alert alert-info">{{ Session::get('message') }}</div>
  @endif

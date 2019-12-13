@@ -51,19 +51,13 @@
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
-                  <li class="user-header">
-                    
-                    <p>
-                    
-                      <small>www.youtube.com</small>
-                    </p>
-                  </li>
+  
                   
                   <!-- Menu Footer-->
-                  <li class="user-footer">
+                  <li class="">
                     
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Cerrar</a>
+                      <a href="{{url('/logout')}}" class="btn btn-default btn-flat">Cerrar</a>
                     </div>
                   </li>
                 </ul>
@@ -87,35 +81,58 @@
             <li class="treeview">
               <a href="#">
                 
-                <span>Almacén</span>
+                <span>Alumnos</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="almacen/articulo"><i class="fa fa-circle-o"></i> Artículos</a></li>
-                <li><a href="almacen/categoria"><i class="fa fa-circle-o"></i> Categorías</a></li>
+                <li><a href="{{route('alumno.create')}}"><i class="fa fa-circle-o"></i> Registrar</a></li>
+                <li><a href="{{route('alumno.index')}}"><i class="fa fa-circle-o"></i> Listar</a></li>
               </ul>
             </li>
             
             <li class="treeview">
               <a href="#">
                 
-                <span>Compras</span>
+                <span>Cursos</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="compras/ingreso"><i class="fa fa-circle-o"></i> Ingresos</a></li>
-                <li><a href="compras/proveedor"><i class="fa fa-circle-o"></i> Proveedores</a></li>
+                <li><a href="{{route('curso.create')}}"><i class="fa fa-circle-o"></i> Registrar</a></li>
+                <li><a href="{{route('curso.index')}}"><i class="fa fa-circle-o"></i> Listar</a></li>
+              </ul>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                
+                <span>Aulas</span>
+                 <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{route('aula.create')}}"><i class="fa fa-circle-o"></i> Registrar</a></li>
+                <li><a href="{{route('aula.index')}}"><i class="fa fa-circle-o"></i> Listar</a></li>
               </ul>
             </li>
             <li class="treeview">
               <a href="#">
                 
-                <span>Ventas</span>
+                <span>Cargos</span>
                  <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="ventas/venta"><i class="fa fa-circle-o"></i> Ventas</a></li>
-                <li><a href="ventas/cliente"><i class="fa fa-circle-o"></i> Clientes</a></li>
+                <li><a href="{{route('cargos.create')}}"><i class="fa fa-circle-o"></i> Registrar</a></li>
+                <li><a href="{{route('cargos.index')}}"><i class="fa fa-circle-o"></i> Listar</a></li>
+              </ul>
+            </li>
+            <li class="treeview">
+              <a href="#">
+                
+                <span>Horarios</span>
+                 <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{route('horario.create')}}"><i class="fa fa-circle-o"></i> Registrar</a></li>
+                <li><a href="{{route('horario.index')}}"><i class="fa fa-circle-o"></i> Listar</a></li>
               </ul>
             </li>
                        

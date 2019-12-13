@@ -1,6 +1,6 @@
 @extends ('layouts.inicio')
 @section('contenido')
-<h1 class="text-left">Registrar gasto</h1>
+<h1 class="text-left">Registrar aula</h1>
 @if (Session::has('message'))
       <div class="alert alert-info">{{ Session::get('message') }}</div>
  @endif
@@ -19,7 +19,7 @@
   <div class="col-10">
     <input class="form-control" type="text" name="nombre_aula" style="width:300px;height:30px">
   </div>
-
+  </div>
   <div class="form-group row">
   <label for="example-search-input" class="col-2 col-form-label">Detalle aula</label>
   <div class="col-10">
